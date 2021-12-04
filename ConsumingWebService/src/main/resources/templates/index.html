@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" 
+xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script th:src="@{/js/myscript.js}"></script>
+</head>
+<body>
+
+	<h1>View Students</h1>
+
+	<h3 th:each="stu : ${students}">
+		<a href="#" 
+		th:id="'a'+${stu.id}"
+		th:onclick="'getStudent(' + ${stu.id} + ')'" 
+		th:text="${stu.name}"></a>
+		
+		<div th:id="'student'+${stu.id}"></div>
+	</h3>
+	
+	<!-- 
+	<h3>
+		<a href="#" 
+		id="a1">Ami Santiago</a>
+		
+		<div id="student1"></div>
+	</h3>
+	 -->
+
+	
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Grade</th>
+			<th>Letter Grade</th>
+		</tr>	
+		<tr th:each="stu : ${students}">
+			<td th:text="${stu.id}"></td>
+			<td th:text="${stu.name}"></td>
+			<td th:text="${stu.grade}"></td>
+			<td th:text="${stu.letterGrade}"></td>
+		</tr>
+	</table>
+	
+</body>
+</html>
